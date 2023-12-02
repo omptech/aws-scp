@@ -1,0 +1,26 @@
+name: Deploy SCP on PR Merge
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: 'AKIA3CQZYFYGIN2HEM27'
+        aws-secret-access-key: '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'
+        aws-region: us-east-1
+
+    - name: Deploy SCP
+      run: |
+        aws organizations update-policy --policy-id 'p-ptngm1yn' --content scp.json
