@@ -21,6 +21,9 @@ jobs:
         aws-secret-access-key: 'YeU21/ruQYlr63J2hBIoeEviteGwYHpj6VpmRisi'
         aws-region: us-east-1
 
+    - name: List files in the repository
+      run: ls -alR
+
     - name: Deploy SCP
       run: |
         aws organizations update-policy --policy-id 'p-ptngm1yn' --content scp.json
