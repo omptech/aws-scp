@@ -23,4 +23,4 @@ jobs:
 
     - name: Deploy SCP
       run: |
-        aws organizations update-policy --policy-id 'p-ptngm1yn' --content scp.json
+        aws organizations update-policy --policy-id 'p-ptngm1yn' --content scp.json --debug
