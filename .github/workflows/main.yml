@@ -27,9 +27,6 @@ jobs:
     - name: List Policies
       run: aws organizations list-policies --filter "SERVICE_CONTROL_POLICY"
 
-    - name: Create SCP
-      run: aws organizations create-policy --name "MyNewSCP" --description "My New SCP" --content '{"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Action": "*", "Resource": "*"}]}' --type "SERVICE_CONTROL_POLICY"
-
     - name: Deploy SCP
       run: |
-        aws organizations update-policy --policy-id 'p-ptngm1yn' --content scp.json --debug
+        aws organizations update-policy --policy-id 'p-ptngm1yn' --content file://scp.json --debug
