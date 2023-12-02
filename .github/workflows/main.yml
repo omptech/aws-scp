@@ -24,6 +24,9 @@ jobs:
     - name: List files in the repository
       run: ls -alR
 
+    - name: List Policies
+      run: aws organizations list-policies --filter "SERVICE_CONTROL_POLICY"
+
     - name: Deploy SCP
       run: |
-        aws organizations update-policy --policy-id 'p-ptngm1yn' --content scp.json
+        aws organizations update-policy --policy-id 'p-ptngm1yn' --content scp.json --debug
